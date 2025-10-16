@@ -1,0 +1,149 @@
+.footer {
+  background: #0f0f0f;
+  color: #fff;
+  margin-top: 40px;
+}
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 32px 32px 32px 52px;
+  max-width: 1800px;
+  margin: 0 auto;
+  gap: 32px;
+}
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+  margin-right: 24px;
+}
+.footer-brand {
+  flex: 2 1 320px;
+  min-width: 320px;
+  margin-right: 48px;
+}
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.footer-logo-img {
+  height: 52px;
+  width: 52px;
+  margin-right: 12px;
+  object-fit: contain;
+}
+.footer-logo-gym {
+  font-weight: bold;
+  font-size: 28px;
+  color: #7ac142;
+  letter-spacing: 2px;
+  font-family: "Alfa Slab One", serif;
+}
+.footer-logo-sub {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: -4px;
+}
+.footer-desc {
+  color: #ccc;
+  font-size: 16px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  max-width: 380px;
+}
+.footer-social-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.footer-social-icons a {
+  display: inline-block;
+  margin-right: 12px;
+}
+.footer-social-icons img {
+  width: 32px;
+  height: 32px;
+  /* padding: 7px; */
+  transition: background 0.2s;
+}
+.footer-title {
+  font-size: 20px;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #7ac142;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+.footer-col ul li a {
+  color: #bdbdbdaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover {
+  color: #7ac142;
+}
+.footer-signup-btn {
+  margin-top: 18px;
+  background: #fff;
+  color: #181818;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 15px;
+}
+.footer-signup-btn:hover {
+  background: #7ac142;
+  color: #fff;
+}
+.footer-bottom {
+  background: #fff;
+  color: #222;
+  font-size: 16px;
+  padding: 18px 32px 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+}
+.footer-bottom-bold {
+  font-weight: bold;
+  color: #7ac142;
+}
+
+@media (max-width: 1100px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .footer-col,
+  .footer-brand {
+    margin-right: 0;
+    min-width: 0;
+  }
+  .footer-brand {
+    margin-bottom: 24px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
