@@ -1,0 +1,69 @@
+.admin-page {
+  padding: 160px 20px 60px;
+  background: #fafafa;
+  min-height: calc(100vh - 240px);
+}
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+.product-table-wrap {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+.product-table th,
+.product-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #f1f1f1;
+  color: #333;
+}
+.td-preview img {
+  width: 84px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.table-btn {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.table-btn.danger {
+  background: #fff;
+  border: 1px solid #f5c6c6;
+  color: #c0392b;
+}
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #888;
+}
+@media (max-width: 860px) {
+  .product-table {
+    min-width: 0;
+    font-size: 14px;
+  }
+  .td-preview img {
+    width: 56px;
+    height: 40px;
+  }
+}

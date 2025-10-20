@@ -1,5 +1,14 @@
 .shopall-page {
-    padding: 160px 40px 40px 40px;
-    min-height: 80vh;
-    background: #fafafa;
+  padding: 20px 55px 40px 55px;
+  min-height: 80vh;
+  background: #fafafa;
+}
+.shopall-title {
+  font-family: "Anton", sans-serif;
+}
+/* responsive tweaks */
+@media (max-width: 720px) {
+  .shopall-page {
+    padding: 0 15px 40px 15px;
+  }
 }

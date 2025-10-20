@@ -1,0 +1,16 @@
+.admin-page {
+  padding: 160px 20px 60px;
+  background: #fafafa;
+  min-height: calc(100vh - 240px);
+}
+.product-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  display: grid;
+  gap: 12px;
+}
+.hidden-text {
+  -webkit-text-security: disc; /* For Chrome, Safari, Edge */
+}

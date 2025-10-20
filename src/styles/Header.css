@@ -15,11 +15,19 @@
   color: #fff;
   padding: 12px 0;
 }
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 .header-top-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
+
+/* Logo area */
 .logo-area {
   display: flex;
   align-items: center;
@@ -35,58 +43,62 @@
   object-fit: contain;
 }
 .logo-gym {
-  font-weight: bold;
   font-size: 23px;
-  color: #7ac142;
   letter-spacing: 2px;
+  color: #7ac142;
   font-family: "Alfa Slab One", serif;
 }
 .logo-sub {
   font-size: 12px;
   color: #ccc;
-  margin-top: -4px;
+}
+
+/* Desktop search & contacts */
+.header-top-desktop {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 .search-bar {
-  flex: 1;
-  margin: 0 40px;
-  max-width: 700px;
-  position: relative;
   display: flex;
   align-items: center;
 }
 .search-input {
-  width: 100%;
-  padding: 12px 50px 12px 24px;
-  border-radius: 30px;
+  padding: 15px 16px;
+  border-radius: 28px;
   border: none;
-  font-size: 18px;
-  outline: none;
+  width: 580px;
 }
 .search-btn {
-  position: absolute;
-  right: 4px;
+  margin-left: -41px;
   background: #7ac142;
-  border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+  border: none;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 20px;
-  padding: 0;
+}
+.icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
 .search-icon-img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
   filter: invert(1);
 }
 .header-contacts {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 36px;
+  margin-left: 16px;
 }
 .contact-item {
   display: flex;
@@ -94,18 +106,20 @@
   gap: 8px;
 }
 .contact-icon-img {
-  width: 33px;
-  height: 33px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   filter: invert(1);
 }
 .contact-label {
+  font-size: 14px;
   font-family: "Anton", sans-serif;
-  font-size: 14px;
 }
-.contact-value {
-  font-size: 14px;
+.contact-value{
+    font-size: 14px;
 }
+
+/* Desktop nav */
 .header-nav {
   background: #f7f7f7;
   border-bottom: 1px solid #eee;
@@ -124,14 +138,14 @@
   font-weight: 500;
   font-size: 14px;
   color: #222;
-  position: relative;
   text-decoration: none;
   padding: 8px 0;
-  transition: color 0.2s;
 }
 .nav-link:hover {
   color: #7ac142;
+  text-decoration: none;
 }
+
 .header-icons {
   display: flex;
   align-items: center;
@@ -145,23 +159,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  color: #222;
   position: relative;
-  text-decoration: none;
+  overflow: hidden; 
   border: none;
   padding: 0;
-  margin: 5px;
 }
 
 .icon-badge {
   position: absolute;
   top: 6px;
-  right: 3px;
+  right: 4px;
   background: #7ac142;
   color: #fff;
   border-radius: 50%;
-  font-size: 13px;
+  font-size: 10px;
   width: 18px;
   height: 18px;
   display: flex;
@@ -176,19 +187,135 @@
   background: #fff;
   color: #7ac142;
 }
-.container {
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
+
+/* By default hide mobile-only elements on desktop */
+.menu-btn,
+.header-icons-mobile,
+.mobile-nav-drawer {
+  display: none;
 }
-.header + .home-main {
-  padding-top: 140px;
-}
-.icon-img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
+
+/* Mobile rules */
+@media (max-width: 900px) {
+  /* compact header top */
+  .header-top-container {
+    padding: 4px 12px;
+    justify-content: center;
+  }
+
+  /* show menu button on mobile */
+  .menu-btn {
+    display: flex;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: transparent;
+    border: none;
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 120;
+  }
+  .menu-btn svg rect {
+    fill: #fff;
+  }
+
+  /* center logo and hide the logo text */
+  .logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .logo-text {
+    margin-left: 8px;
+  }
+  .logo-img {
+    height: 40px;
+    width: 40px;
+    margin-right: 0;
+  }
+
+  /* show mobile icons on right */
+  .header-icons-mobile {
+    display: flex;
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    gap: 8px;
+    align-items: center;
+    z-index: 120;
+  }
+  .header-icons-mobile .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .header-icons-mobile .icon-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* hide desktop-only areas on mobile */
+  .header-top-desktop {
+    display: none !important;
+  }
+  .header-nav {
+    display: none !important;
+  }
+  .header-icons {
+    display: none !important;
+  }
+
+  /* Mobile nav drawer (overlay) */
+  .mobile-nav-drawer {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .mobile-nav-links {
+    width: 84vw;
+    max-width: 360px;
+    height: 100vh;
+    background: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.16);
+  }
+  .mobile-close-btn {
+    background: transparent;
+    border: none;
+    color: #222;
+    font-weight: 700;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .mobile-nav-link {
+    color: #222;
+    font-size: 18px;
+    padding: 14px 12px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
     display: block;
-    max-width: 100%;
-    max-height: 100%;
+  }
+}
+
+/* small screens adjustments */
+@media (max-width: 420px) {
+  .search-input {
+    width: 220px;
+  }
+  .logo-img {
+    height: 36px;
+    width: 36px;
+  }
+  .icon-img {
+    width: 20px;
+    height: 20px;
+  }
 }

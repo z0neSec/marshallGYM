@@ -1,0 +1,80 @@
+.admin-page {
+  padding: 160px 20px 60px;
+  background: #fafafa;
+  min-height: calc(100vh - 240px);
+}
+.admin-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.admin-title {
+  font-family: "Anton", sans-serif;
+  font-size: 28px;
+  margin-bottom: 18px;
+  color: #222;
+}
+.product-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  display: grid;
+  gap: 12px;
+}
+.product-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #444;
+}
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form input[type="password"],
+.product-form select,
+.product-form textarea,
+.product-form input[type="file"] {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  background: #fff;
+}
+.image-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.image-preview {
+  width: 140px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  object-fit: cover;
+}
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+.btn.primary {
+  background: #7ac142;
+  color: #fff;
+}
+.btn.secondary {
+  background: #fff;
+  color: #222;
+  border: 1px solid #eee;
+}
+@media (max-width: 720px) {
+  .form-actions {
+    flex-direction: column;
+  }
+}

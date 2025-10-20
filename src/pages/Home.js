@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 import dumbbell_bg from '../images/dumbbell-hero-bg.png';
 import strength_bg from '../images/strength-hero-bg.png';
+import CategoryCarousel from '../components/CategoryCarousel';
 
 const Home = () => {
     return (
@@ -22,7 +23,7 @@ const Home = () => {
                 <div className="home-sale">
                     <div className="home-sale-content">
                         <h2>SHOP OUR OCTOBER SALE!</h2>
-                        <Link to="/on-sale" className="sale-btn">
+                        <Link to="/shop-all" className="sale-btn">
                             SHOP SALE
                         </Link>
                     </div>
@@ -48,6 +49,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <CategoryCarousel />
         </main>
     );
 };

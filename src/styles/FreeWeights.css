@@ -1,5 +1,14 @@
 .freeweights-page {
-    padding: 160px 40px 40px 40px;
+    padding: 20px 55px 40px 55px;
     min-height: 80vh;
     background: #fafafa;
+}
+.freeweights-title {
+    font-family: "Anton", sans-serif;
+}
+/* responsive tweaks */
+@media (max-width: 720px) {
+  .freeweights-page {
+    padding: 0 15px 40px 15px;
+  }
 }

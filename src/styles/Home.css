@@ -223,3 +223,104 @@
     width: 80px;
   }
 }
+
+@media (max-width: 900px) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto;
+    gap: 18px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .home-hero {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-sale {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-dumbbells {
+    grid-column: 1 / 2;
+    grid-row: auto;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-strength {
+    grid-column: 2 / 3;
+    grid-row: auto;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Keep hero content centered */
+  .home-hero-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .home-hero-content .hero-title {
+    font-size: clamp(40px, 7vw, 50px);
+  }
+  .hero-btn {
+    padding: 8px 24px;
+    font-size: 16px;
+  }
+
+  .dumbbells-img,
+  .strength-img {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 110px;
+    height: auto;
+  }
+
+  .home-sale-content {
+    padding: 20px;
+  }
+
+  .home-main {
+    padding-top: 140px;
+  }
+}
+
+/* On very small phones keep everything stacked vertically */
+@media (max-width: 420px) {
+  .home-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .home-hero,
+  .home-sale,
+  .home-dumbbells,
+  .home-strength {
+    grid-column: auto !important;
+  }
+  .dumbbells-img,
+  .strength-img {
+    right: 12px;
+    bottom: 12px;
+    width: 120px;
+  }
+  .home-hero-content .hero-title {
+    font-size: clamp(34px, 8vw, 40px);
+  }
+}

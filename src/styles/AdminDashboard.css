@@ -1,0 +1,58 @@
+.admin-page {
+  padding: 160px 20px 60px;
+  background: #fafafa;
+  min-height: calc(100vh - 240px);
+}
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.admin-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  margin-bottom: 22px;
+  color: #222;
+}
+.admin-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.admin-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 160px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.card-number {
+  font-size: 28px;
+  font-weight: 800;
+  color: #222;
+}
+.card-label {
+  color: #8b8b8b;
+  margin-top: 6px;
+}
+.admin-actions {
+  display: flex;
+  gap: 12px;
+}
+.admin-btn {
+  background: #7ac142;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.admin-btn.outline {
+  background: #fff;
+  color: #222;
+  border: 1px solid #eee;
+}
+@media (max-width: 720px) {
+  .admin-cards { flex-direction: column; }
+  .admin-actions { flex-direction: column; }
+}

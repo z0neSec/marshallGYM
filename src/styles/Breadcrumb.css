@@ -1,0 +1,53 @@
+.page-breadcrumb {
+  width: 100%;
+  background: transparent;
+  padding: 140px 0 0 0;
+}
+
+.bc-inner {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #222;
+  color: #ffffff76;
+  padding: 5px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* breadcrumb pieces */
+.bc-link {
+  color: #ffffff76;
+  text-decoration: none;
+  opacity: 0.95;
+}
+.bc-link:hover {
+  text-decoration: none;
+}
+
+.bc-sep {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 6px;
+}
+
+.bc-current {
+  font-size: 16px;
+  letter-spacing: 0.4px;
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+  .bc-inner {
+    padding: 5px 12px;
+    border-radius: 10px;
+  }
+  .bc-current {
+    font-size: 15px;
+  }
+  .page-breadcrumb {
+    padding: 100px 0 0 0;
+  }
+}
