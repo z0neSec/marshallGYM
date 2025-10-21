@@ -1,7 +1,6 @@
 .footer {
   background: #0f0f0f;
   color: #fff;
-  margin-top: 40px;
 }
 .footer-main {
   display: flex;
@@ -129,7 +128,6 @@
 
 @media (max-width: 1100px) {
   .footer-main {
-    flex-direction: column;
     gap: 24px;
   }
   .footer-col,

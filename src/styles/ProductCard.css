@@ -1,0 +1,133 @@
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* card hover */
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+/* image area */
+.card-image-link {
+  display: block;
+}
+.card-image {
+  width: 100%;
+  padding-top: 72%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fafafa;
+  transition: transform 220ms ease;
+}
+
+/* slightly scale image on card hover */
+.product-card:hover .card-image {
+  transform: scale(1.03);
+}
+
+/* body / text */
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.card-title {
+  color: #222;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: color 160ms ease, transform 160ms ease;
+  display: inline-block;
+}
+
+/* title hover */
+.card-title:hover {
+  color: #7ac142;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* stock pill */
+.card-stock .stock {
+  display: inline-block;
+  border: 1px solid #96c48e;
+  color: #7ac142;
+  background: #fff;
+  padding: 5px 12px;
+  font-size: 15px;
+  border-radius: 10px;
+  width: 86%;
+}
+
+/* price */
+.card-price {
+  color: #7ac142;
+  margin-top: auto;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* add to cart button */
+.add-cart-btn {
+  margin-top: 8px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 7px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 160ms ease, transform 120ms ease, opacity 120ms ease;
+}
+
+/* button hover */
+.add-cart-btn:hover:not(:disabled) {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* disabled state */
+.add-cart-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+/* responsive adjustments moved here */
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-image {
+    padding-top: 64%;
+    background-size: cover;
+  }
+}

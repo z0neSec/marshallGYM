@@ -5,7 +5,7 @@ import '../styles/Breadcrumb.css';
 const Breadcrumb = ({ title = 'Shop', parent = 'Home', parentTo = '/' }) => {
   return (
     <div className="page-breadcrumb" role="navigation" aria-label="breadcrumb">
-      <div className="container bc-inner">
+      <div className="bc-container bc-inner">
         <Link to={parentTo} className="bc-link">{parent}</Link>
         <span className="bc-sep">/</span>
         <span className="bc-current">{title}</span>

@@ -1,3 +1,9 @@
+.bc-container {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .page-breadcrumb {
   width: 100%;
   background: transparent;
@@ -5,12 +11,11 @@
 }
 
 .bc-inner {
-  width: 90%;
   max-width: 1400px;
   margin: 0 auto;
   background: #222;
   color: #ffffff76;
-  padding: 5px 18px;
+  padding: 5px 20px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -41,13 +46,18 @@
 /* responsive tweaks */
 @media (max-width: 720px) {
   .bc-inner {
-    padding: 5px 12px;
+    padding: 5px 10px;
     border-radius: 10px;
+    font-size: 14px;
+    gap: 3px;
   }
   .bc-current {
-    font-size: 15px;
+    font-size: 14px;
   }
   .page-breadcrumb {
     padding: 100px 0 0 0;
+  }
+  .bc-container {
+    width: 90%;
   }
 }
