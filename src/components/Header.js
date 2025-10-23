@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
@@ -19,8 +19,39 @@ const navLinks = [
   { name: 'CONTACT', path: '/contact' },
 ];
 
+function getCartCount() {
+  try {
+    const raw = localStorage.getItem('mg_cart');
+    if (!raw) return 0;
+    const cart = JSON.parse(raw);
+    return cart.reduce((s, i) => s + (Number(i.quantity) || 0), 0);
+  } catch {
+    return 0;
+  }
+}
+
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(getCartCount());
+
+  useEffect(() => {
+    const onUpdate = (ev) => {
+      // if the event contains a precomputed count, use it (faster & more reliable on mobile)
+      const detailCount = ev?.detail?.count;
+      if (typeof detailCount === 'number') {
+        setCartCount(detailCount);
+        return;
+      }
+      // fallback: recalc from localStorage
+      setCartCount(getCartCount());
+    };
+    window.addEventListener('storage', onUpdate);
+    window.addEventListener('cartUpdated', onUpdate);
+    return () => {
+      window.removeEventListener('storage', onUpdate);
+      window.removeEventListener('cartUpdated', onUpdate);
+    };
+  }, []);
 
   return (
     <header className="header fixed-header">
@@ -102,7 +133,7 @@ const Header = () => {
           <div className="header-icons">
             <Link to="/cart" className="icon-btn cart-btn" aria-label="Cart">
               <img src={cartImg} alt="Cart" className="icon-img" />
-              <span className="icon-badge cart-badge">0</span>
+              <span className="icon-badge cart-badge">{cartCount}</span>
             </Link>
           </div>
         </div>

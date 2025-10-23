@@ -18,7 +18,8 @@ import AdminLogin from './pages/admin/AdminLogin';
 import PrivateRoute from './components/PrivateRoute';
 import { setAuthToken } from './services/api';
 import './styles/theme.css';
-import './styles/toast.css'; // add the toast styles globally
+import './styles/toast.css'; 
+import ProductDetail from './pages/ProductDetail';
 
 // set token on app load if exists
 const token = localStorage.getItem('admin_token');
@@ -38,6 +39,7 @@ const App = () => (
         <Route path="/shop-all" component={ShopAll} />
         <Route path="/contact" component={Contact} />
         <Route path="/cart" component={Cart} />
+        <Route path="/product/:id" component={ProductDetail} />
 
         {/* admin routes */}
         <Route path="/admin/login" component={AdminLogin} />
