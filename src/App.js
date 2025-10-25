@@ -20,6 +20,7 @@ import { setAuthToken } from './services/api';
 import './styles/theme.css';
 import './styles/toast.css'; 
 import ProductDetail from './pages/ProductDetail';
+import Checkout from './pages/Checkout';
 
 // set token on app load if exists
 const token = localStorage.getItem('admin_token');
@@ -40,6 +41,7 @@ const App = () => (
         <Route path="/contact" component={Contact} />
         <Route path="/cart" component={Cart} />
         <Route path="/product/:id" component={ProductDetail} />
+        <Route path="/checkout" component={Checkout} />
 
         {/* admin routes */}
         <Route path="/admin/login" component={AdminLogin} />

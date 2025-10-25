@@ -3,8 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
 import '../styles/Cart.css';
 
-const VAT_RATE = 0.15; // adjust if you want a different VAT percentage
-
 function readCart() {
   try {
     const raw = localStorage.getItem('mg_cart');
