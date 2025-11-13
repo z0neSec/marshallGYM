@@ -27,7 +27,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Admin list orders (protected) — MUST come before /:id
 const auth = require('../middleware/auth');
 router.get('/', auth, async (req, res) => {
   try {
@@ -63,7 +62,6 @@ router.get('/:id', async (req, res) => {
 router.post('/:id/confirm-payment', async (req, res) => {
   try {
     const { id } = req.params;
-    // Keep order as pending — admin must manually mark as paid after verifying bank transfer
     const order = await Order.findById(id).lean();
     if (!order) return res.status(404).json({ message: 'Order not found' });
     res.json({ ok: true, order, message: 'Payment confirmation received. Admin will verify and mark as paid.' });

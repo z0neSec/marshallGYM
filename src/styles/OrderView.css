@@ -1,9 +1,3 @@
-/* OrderView page styles — admin order detail view
-   Accent: #7ac142 (green)
-   Backgrounds: white card on light surface
-   Responsive: adjusts layout on tablet and mobile
-*/
-
 .order-view.container {
   padding: 40px 20px;
   width: 92%;

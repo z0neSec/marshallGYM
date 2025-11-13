@@ -54,7 +54,7 @@ const Checkout = () => {
       const newOrder = createRes.data;
       setOrder(newOrder);
       setShowPayment(true);
-      toastSuccess('Order created — please proceed with bank transfer');
+      toastSuccess('Order created... please proceed with bank transfer');
     } catch (err) {
       console.error('Order creation error', err);
       toastError(err.response?.data?.message || 'Could not create order');
