@@ -7,7 +7,6 @@
   margin: 100px auto;
 }
 
-/* overall layout */
 .product-detail {
   padding: 30px 0 100px;
   background: #fafafa;
@@ -20,7 +19,6 @@
   align-items: start;
 }
 
-/* thumbnails column */
 .pd-thumbs {
   display: flex;
   flex-direction: column;
@@ -47,7 +45,6 @@
   background: #f4f4f4;
 }
 
-/* main image */
 .pd-main {
   display: flex;
   align-items: center;
@@ -56,7 +53,7 @@
 .pd-image {
   width: 100%;
   border-radius: 12px;
-  padding-top: 66%; /* aspect ratio */
+  padding-top: 66%; 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -67,7 +64,6 @@
   transform: scale(1.02);
 }
 
-/* info column */
 .pd-info {
   display: flex;
   flex-direction: column;
@@ -97,7 +93,6 @@
   margin: 0;
 }
 
-/* price & meta */
 .pd-price {
   color: #7ac142;
   font-weight: 800;
@@ -125,7 +120,6 @@
   border-color: #f5d6d6;
 }
 
-/* delivery link */
 .pd-delivery {
   color: #222;
   text-decoration: none;
@@ -133,7 +127,6 @@
   font-size: 13px;
 }
 
-/* actions */
 .pd-actions {
   display: flex;
   gap: 12px;
@@ -163,7 +156,6 @@
   font-weight: 700;
 }
 
-/* buttons */
 .btn-add {
   background: #7ac142;
   color: #fff;
@@ -193,14 +185,12 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* disabled state */
 .btn-add:disabled,
 .btn-buy:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* small screens */
 @media (max-width: 1100px) {
   .pd-grid {
     grid-template-columns: 80px 1fr;

@@ -3,11 +3,9 @@ const router = express.Router();
 const Product = require('../models/Product');
 const auth = require('../middleware/auth');
 
-// Create
 router.post('/', auth, async (req, res) => {
   try {
     const { name, price, category, description, imageUrl, images, stock } = req.body;
-    // ensure imageUrl fallback to first image for compatibility
     const firstImage = imageUrl || (Array.isArray(images) && images.length ? images[0] : '');
     const p = await Product.create({ name, price, category, description, imageUrl: firstImage, images: images || (firstImage ? [firstImage] : []), stock });
     res.status(201).json(p);
@@ -17,7 +15,6 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-// Read all
 router.get('/', async (req, res) => {
   try {
     const items = await Product.find().sort({ createdAt: -1 });
@@ -27,7 +24,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Update
 router.put('/:id', auth, async (req, res) => {
   try {
     const updates = req.body;
@@ -39,7 +35,6 @@ router.put('/:id', auth, async (req, res) => {
   }
 });
 
-// Delete
 router.delete('/:id', auth, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);

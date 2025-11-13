@@ -14,7 +14,6 @@
   align-items: start;
 }
 
-/* Billing column */
 .billing {
   background: #fff;
   padding: 22px;
@@ -47,13 +46,11 @@ label textarea {
   box-sizing: border-box;
 }
 
-/* make required asterisk red */
 label .req {
-  color: #cf2d4a; /* red for required fields */
+  color: #cf2d4a; 
   margin-left: 6px;
 }
 
-/* payment info area */
 .payment-info {
   margin-top: 18px;
   padding-top: 8px;
@@ -72,7 +69,6 @@ label .req {
   margin-top: 8px;
 }
 
-/* place order btn */
 .place-order {
   margin-top: 18px;
 }
@@ -87,7 +83,6 @@ label .req {
   cursor: pointer;
 }
 
-/* order review sidebar */
 .order-review .review-card {
   background: #fff;
   padding: 18px;
@@ -130,7 +125,6 @@ label .req {
   margin-top: 6px;
 }
 
-/* summary */
 .review-summary {
   margin-top: 14px;
 }
@@ -151,7 +145,6 @@ label .req {
   color: #7ac142;
 }
 
-/* responsive */
 @media (max-width: 1000px) {
   .checkout-grid {
     grid-template-columns: 1fr;

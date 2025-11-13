@@ -1,5 +1,3 @@
-// Very small lightweight toast utility to avoid react-toastify build issues.
-// Usage: import { toastSuccess, toastError } from '../utils/toast';
 const containerId = 'mg-toast-container';
 
 function ensureContainer() {

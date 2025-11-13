@@ -32,7 +32,7 @@ const CategoryCarousel = () => {
     if (!container) return;
 
     let rafId = null;
-    const speed = 0.6; // px per frame (tweak for slower/faster)
+    const speed = 0.6; 
 
     const step = () => {
       if (!paused) {
@@ -49,7 +49,6 @@ const CategoryCarousel = () => {
     container.scrollLeft = 0;
     rafId = requestAnimationFrame(step);
 
-    // pause auto-scroll when user interacts via wheel/drag
     const onWheel = () => setPaused(true);
     const onPointerDown = () => setPaused(true);
     const onPointerUp = () => setPaused(false);
@@ -69,10 +68,8 @@ const CategoryCarousel = () => {
   const scrollBy = (amount) => {
     const container = containerRef.current;
     if (!container) return;
-    // temporarily pause auto scroll so the user can control
     setPaused(true);
     container.scrollBy({ left: amount, behavior: 'smooth' });
-    // resume after short delay
     setTimeout(() => setPaused(false), 800);
   };
 

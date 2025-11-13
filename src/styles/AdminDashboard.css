@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 .admin-title {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 36px;
   margin-bottom: 22px;
   color: #222;
@@ -24,7 +24,7 @@
   padding: 20px;
   border-radius: 10px;
   min-width: 160px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 .card-number {
   font-size: 28px;
@@ -53,6 +53,10 @@
   border: 1px solid #eee;
 }
 @media (max-width: 720px) {
-  .admin-cards { flex-direction: column; }
-  .admin-actions { flex-direction: column; }
+  .admin-cards {
+    flex-direction: column;
+  }
+  .admin-actions {
+    flex-direction: column;
+  }
 }

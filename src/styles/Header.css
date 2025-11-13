@@ -27,7 +27,6 @@
   position: relative;
 }
 
-/* Logo area */
 .logo-area {
   display: flex;
   align-items: center;
@@ -53,7 +52,6 @@
   color: #ccc;
 }
 
-/* Desktop search & contacts */
 .header-top-desktop {
   display: flex;
   align-items: center;
@@ -115,11 +113,10 @@
   font-size: 14px;
   font-family: "Anton", sans-serif;
 }
-.contact-value{
-    font-size: 14px;
+.contact-value {
+  font-size: 14px;
 }
 
-/* Desktop nav */
 .header-nav {
   background: #f7f7f7;
   border-bottom: 1px solid #eee;
@@ -160,7 +157,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
   border: none;
   padding: 0;
 }
@@ -188,22 +185,18 @@
   color: #7ac142;
 }
 
-/* By default hide mobile-only elements on desktop */
 .menu-btn,
 .header-icons-mobile,
 .mobile-nav-drawer {
   display: none;
 }
 
-/* Mobile rules */
 @media (max-width: 900px) {
-  /* compact header top */
   .header-top-container {
     padding: 4px 12px;
     justify-content: center;
   }
 
-  /* show menu button on mobile */
   .menu-btn {
     display: flex;
     position: absolute;
@@ -221,7 +214,6 @@
     fill: #fff;
   }
 
-  /* center logo and hide the logo text */
   .logo-area {
     display: flex;
     align-items: center;
@@ -237,7 +229,6 @@
     margin-right: 0;
   }
 
-  /* show mobile icons on right */
   .header-icons-mobile {
     display: flex;
     position: absolute;
@@ -255,8 +246,6 @@
     width: 20px;
     height: 20px;
   }
-
-  /* hide desktop-only areas on mobile */
   .header-top-desktop {
     display: none !important;
   }
@@ -267,7 +256,6 @@
     display: none !important;
   }
 
-  /* Mobile nav drawer (overlay) */
   .mobile-nav-drawer {
     display: flex;
     position: fixed;
@@ -305,7 +293,6 @@
   }
 }
 
-/* small screens adjustments */
 @media (max-width: 420px) {
   .search-input {
     width: 220px;

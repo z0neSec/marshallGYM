@@ -8,7 +8,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
-// seed admin on startup if not exists (callable on server start)
 async function seedAdmin() {
   try {
     const found = await User.findOne({ email: ADMIN_EMAIL });

@@ -1,4 +1,3 @@
-/* Simple toast styles used by the lightweight toast util */
 .mg-toast-container {
   position: fixed;
   right: 18px;
@@ -19,12 +18,18 @@
   color: #fff;
   font-weight: 700;
   min-width: 160px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .mg-toast.visible {
   transform: translateY(0);
   opacity: 1;
 }
-.mg-toast-success { background: #2ecc71; }
-.mg-toast-error { background: #e74c3c; }
-.mg-toast-info { background: #3498db; }
+.mg-toast-success {
+  background: #2ecc71;
+}
+.mg-toast-error {
+  background: #e74c3c;
+}
+.mg-toast-info {
+  background: #3498db;
+}

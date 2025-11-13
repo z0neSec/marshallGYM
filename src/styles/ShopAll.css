@@ -4,7 +4,6 @@
   margin: 0 auto;
 }
 
-/* top header area */
 .shopall-page {
   padding: 30px 0 80px;
   background: #fafafa;
@@ -24,7 +23,6 @@
   color: #222;
 }
 
-/* controls on right */
 .shop-controls {
   display: flex;
   align-items: center;
@@ -72,7 +70,6 @@
   text-align: center;
 }
 
-/* responsive grid breakpoints */
 @media (max-width: 1200px) {
   .shopall-title {
     font-size: 48px;

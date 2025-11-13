@@ -6,7 +6,6 @@
 .freeweights-title {
     font-family: "Anton", sans-serif;
 }
-/* responsive tweaks */
 @media (max-width: 720px) {
   .freeweights-page {
     padding: 0 15px 40px 15px;

@@ -14,7 +14,6 @@ const storage = new CloudinaryStorage({
 const parser = multer({ storage });
 
 router.post('/', parser.single('image'), (req, res) => {
-  // multer-storage-cloudinary sets req.file with path/metadata
   if (!req.file || !req.file.path) return res.status(400).json({ message: 'No file uploaded' });
   return res.json({ url: req.file.path });
 });

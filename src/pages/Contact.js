@@ -6,8 +6,6 @@ import '../styles/Contact.css';
 const Contact = () => {
     return (
         <>
-            {/* <Breadcrumb title="Contact Us" /> */}
-
             <div className="contact-page">
                 <div className="contact-banner" role="img" aria-label="Contact banner" />
 

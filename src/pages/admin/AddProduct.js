@@ -85,7 +85,6 @@ const AddProduct = () => {
     return (
         <div className="admin-page">
                         <div className="admin-container">
-                                {/* <Breadcrumb title={id ? 'Edit Product' : 'Add Product'} parent="Admin" parentTo="/admin" /> */}
                                 <div className="add-product-header">
                     <h1 className="admin-title">{id ? 'Edit Product' : 'Add Product'}</h1>
                     <div className="nav-buttons">

@@ -1,4 +1,3 @@
-// small localStorage-backed product service used by admin pages
 const STORAGE_KEY = 'mg_products_v1';
 
 export function getProducts() {

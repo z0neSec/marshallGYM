@@ -14,10 +14,8 @@ function readCart() {
 
 function writeCart(cart) {
   localStorage.setItem('mg_cart', JSON.stringify(cart));
-  // notify other windows/components (Header listens)
   window.dispatchEvent(new Event('cartUpdated'));
 
-  // dispatch a detailed event so listeners (including mobile) can update immediately
   try {
     const count = (cart || []).reduce((s, i) => s + (Number(i.quantity) || 0), 0);
     window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count } }));
@@ -59,7 +57,6 @@ const Cart = () => {
   const total = subtotal;
 
   const handleProceed = () => {
-    // placeholder: in future go to checkout
     history.push('/checkout');
   };
 

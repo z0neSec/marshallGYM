@@ -54,17 +54,11 @@ const BankTransfer = ({ orderId, onSuccess }) => {
         <div className="bt-detail-row">
           <span className="label">Bank Name</span>
           <span className="value">{bankDetails.bankName}</span>
-          {/* <button className="copy-btn" onClick={() => copyToClipboard(bankDetails.bankName)}>
-            {copied ? '✓ Copied' : 'Copy'}
-          </button> */}
         </div>
 
         <div className="bt-detail-row">
           <span className="label">Account Name</span>
           <span className="value">{bankDetails.accountName}</span>
-          {/* <button className="copy-btn" onClick={() => copyToClipboard(bankDetails.accountName)}>
-            {copied ? '✓ Copied' : 'Copy'}
-          </button> */}
         </div>
 
         <div className="bt-detail-row">

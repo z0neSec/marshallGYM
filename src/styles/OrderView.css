@@ -109,7 +109,6 @@
   font-weight: 700;
 }
 
-/* Customer section */
 .customer-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -139,7 +138,6 @@
   font-weight: 500;
 }
 
-/* Items section */
 .order-items {
   width: 100%;
   border-collapse: collapse;
@@ -168,7 +166,6 @@
   border-bottom: none;
 }
 
-/* Summary section */
 .order-summary {
   margin-top: 24px;
   padding: 20px;
@@ -205,7 +202,6 @@
   font-size: 24px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .order-view.container { padding: 28px 16px; }
   .order-view-card { padding: 24px; }

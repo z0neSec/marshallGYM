@@ -1,18 +1,15 @@
-/* container reuse */
 .container {
   width: 95%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* page */
 .cart-page {
   padding: 60px 0 90px;
   background: #fafafa;
   color: #222;
 }
 
-/* grid: main list + sidebar */
 .cart-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -20,7 +17,6 @@
   align-items: start;
 }
 
-/* items column */
 .cart-items {
   background: #fff;
   border-radius: 12px;
@@ -33,7 +29,6 @@
   margin: 0 0 8px;
 }
 
-/* table */
 .cart-table {
   margin-top: 8px;
 }
@@ -90,7 +85,6 @@
   font-size: 10px;
 }
 
-/* remove button */
 .remove-btn {
   background: transparent;
   border: none;
@@ -100,7 +94,6 @@
   cursor: pointer;
 }
 
-/* qty control */
 .qty {
   display: inline-flex;
   border: 1px solid #eee;
@@ -123,7 +116,6 @@
   padding: 6px 8px;
 }
 
-/* price/subtotal */
 .price-col,
 .subtotal-col {
   font-weight: 800;
@@ -133,7 +125,6 @@
   justify-content: flex-end;
 }
 
-/* summary card */
 .cart-summary .summary-card {
   background: #fff;
   border-radius: 12px;
@@ -171,7 +162,6 @@
   font-size: 20px;
 }
 
-/* proceed button */
 .proceed-btn {
   width: 100%;
   margin-top: 18px;
@@ -184,7 +174,6 @@
   cursor: pointer;
 }
 
-/* empty state */
 .cart-empty {
   padding: 60px;
   text-align: center;
@@ -193,7 +182,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* responsive */
 @media (max-width: 1000px) {
   .cart-grid {
     grid-template-columns: 1fr;
@@ -205,7 +193,6 @@
     order: 2;
   }
 }
-/* mobile adjustments only (matches the uploaded mobile screenshot) */
 @media (max-width: 520px) {
   .cart-row {
     display: block;
@@ -217,7 +204,6 @@
     display: none;
   }
 
-  /* place remove button top-right like screenshot */
   .remove-btn {
     position: absolute;
     right: 12px;
@@ -225,12 +211,11 @@
     font-size: 18px;
   }
 
-  /* product block: thumbnail + title stacked horizontally */
   .product-col {
     display: flex;
     gap: 12px;
     align-items: flex-start;
-    padding-right: 40px; /* space for remove button */
+    padding-right: 40px; 
   }
   .cart-thumb {
     width: 72px;
@@ -245,7 +230,6 @@
     margin-bottom: 12px;
   }
 
-  /* show compact labels above each value to match screenshot */
   .price-col,
   .qty-col,
   .subtotal-col {
@@ -291,7 +275,6 @@
     margin-left: auto;
   }
 
-  /* subtotal value in green on the right */
   .subtotal-col {
     justify-content: space-between;
   }
@@ -301,7 +284,6 @@
     font-weight: 800;
   }
 
-  /* smaller thumb for small phones */
   .cart-thumb {
     width: 58px;
     height: 58px;

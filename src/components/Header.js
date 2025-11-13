@@ -36,13 +36,11 @@ const Header = () => {
 
   useEffect(() => {
     const onUpdate = (ev) => {
-      // if the event contains a precomputed count, use it (faster & more reliable on mobile)
       const detailCount = ev?.detail?.count;
       if (typeof detailCount === 'number') {
         setCartCount(detailCount);
         return;
       }
-      // fallback: recalc from localStorage
       setCartCount(getCartCount());
     };
     window.addEventListener('storage', onUpdate);
@@ -55,10 +53,8 @@ const Header = () => {
 
   return (
     <header className="header fixed-header">
-      {/* Top Bar */}
       <div className="header-top">
         <div className="container header-top-container">
-          {/* Mobile menu button - hidden on desktop via CSS */}
           <button
             className="menu-btn"
             aria-label="Open menu"
@@ -71,7 +67,6 @@ const Header = () => {
             </svg>
           </button>
 
-          {/* Logo */}
           <div className="logo-area">
             <Link to="/" className="logo-link" aria-label="Home">
               <img src={logoImg} alt="Marshall Gym Logo" className="logo-img" />
@@ -82,7 +77,6 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile right side icons (cart) - hidden on desktop via CSS */}
           <div className="header-icons-mobile">
             <Link to="/cart" className="icon-btn mobile-icon cart-btn" aria-label="Cart">
               <img src={cartImg} alt="Cart" className="icon-img" />
@@ -90,7 +84,6 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Desktop top content (search, contacts) - hidden on mobile via CSS */}
           <div className="header-top-desktop" aria-hidden="false">
             <div className="search-bar">
               <input type="text" placeholder="Search for products" className="search-input" />
@@ -119,7 +112,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Navigation Bar (desktop) - hidden on mobile via CSS */}
       <div className="header-nav">
         <div className="container header-nav-container">
           <nav className="main-nav">
@@ -139,7 +131,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile nav drawer */}
       {mobileOpen && (
         <div className="mobile-nav-drawer" role="dialog" aria-modal="true" onClick={() => setMobileOpen(false)}>
           <div className="mobile-nav-links" onClick={(e) => e.stopPropagation()}>

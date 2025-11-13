@@ -23,7 +23,6 @@
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
-/* breadcrumb pieces */
 .bc-link {
   color: #ffffff76;
   text-decoration: none;
@@ -43,7 +42,6 @@
   letter-spacing: 0.4px;
 }
 
-/* responsive tweaks */
 @media (max-width: 720px) {
   .bc-inner {
     padding: 5px 10px;

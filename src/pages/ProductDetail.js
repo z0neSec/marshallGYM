@@ -47,7 +47,6 @@ const ProductDetail = () => {
   );
 
   const images = (() => {
-    // support product.images array or single imageUrl / image fallback
     if (Array.isArray(product.images) && product.images.length) return product.images;
     if (product.imageUrl) return [product.imageUrl];
     if (product.image) return [product.image];

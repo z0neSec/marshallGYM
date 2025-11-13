@@ -266,7 +266,6 @@
     align-items: center;
   }
 
-  /* Keep hero content centered */
   .home-hero-content {
     height: 100%;
     display: flex;
@@ -303,7 +302,6 @@
   }
 }
 
-/* On very small phones keep everything stacked vertically */
 @media (max-width: 420px) {
   .home-grid {
     grid-template-columns: 1fr !important;

@@ -6,7 +6,6 @@ const BANK_NAME = process.env.BANK_NAME;
 const BANK_ACCOUNT_NAME = process.env.BANK_ACCOUNT_NAME;
 const BANK_ACCOUNT_NUMBER = process.env.BANK_ACCOUNT_NUMBER;
 
-// Create order (pending)
 router.post('/', async (req, res) => {
   try {
     const { customer, items, subtotal, total } = req.body;
@@ -37,7 +36,6 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// Get bank details (public)
 router.get('/bank/details', (req, res) => {
   res.json({
     bankName: BANK_NAME,
@@ -46,7 +44,6 @@ router.get('/bank/details', (req, res) => {
   });
 });
 
-// Public get order by id (used for order complete page)
 router.get('/:id', async (req, res) => {
   try {
     const order = await Order.findById(req.params.id).lean();
@@ -58,7 +55,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Mark order as paid (bank transfer confirmation)
 router.post('/:id/confirm-payment', async (req, res) => {
   try {
     const { id } = req.params;

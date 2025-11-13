@@ -62,10 +62,8 @@ const Checkout = () => {
   };
 
   const handlePaymentSuccess = (paidOrder) => {
-    // clear cart & notify header
     localStorage.removeItem('mg_cart');
     window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count: 0 } }));
-    // navigate to order complete page
     history.push(`/order?id=${paidOrder._id}`);
   };
 
