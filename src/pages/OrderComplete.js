@@ -27,7 +27,7 @@ const OrderComplete = () => {
       <Breadcrumb title="Order Complete" />
       <main className="order-complete container">
         <div className="oc-card">
-          <h2>Thank you for shopping with Marshall GYM</h2>
+          <h2>Thank you for shopping with Marshall Sport</h2>
           <p>Order ID: <strong>{order._id}</strong></p>
           <p>Total: <strong>₦{order.total}</strong></p>
 

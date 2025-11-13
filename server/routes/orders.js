@@ -63,9 +63,10 @@ router.get('/:id', async (req, res) => {
 router.post('/:id/confirm-payment', async (req, res) => {
   try {
     const { id } = req.params;
-    const order = await Order.findByIdAndUpdate(id, { status: 'paid' }, { new: true }).lean();
+    // Keep order as pending — admin must manually mark as paid after verifying bank transfer
+    const order = await Order.findById(id).lean();
     if (!order) return res.status(404).json({ message: 'Order not found' });
-    res.json({ ok: true, order });
+    res.json({ ok: true, order, message: 'Payment confirmation received. Admin will verify and mark as paid.' });
   } catch (err) {
     console.error('Confirm payment error', err);
     res.status(500).json({ message: 'Confirmation failed' });

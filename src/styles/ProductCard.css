@@ -60,7 +60,6 @@
   text-decoration: none;
 }
 
-/* stock pill */
 .card-stock .stock {
   display: inline-block;
   border: 1px solid #96c48e;
@@ -72,7 +71,22 @@
   width: 86%;
 }
 
-/* price */
+.card-stock .stock.out {
+  border-color: #f5d6d6;
+  color: #b00020;
+  background: #fff;
+}
+
+/* dim or tint entire card when out of stock */
+.product-card.out-of-stock {
+  opacity: 0.95;
+  border: 1px solid rgba(176, 0, 32, 0.06);
+}
+
+.product-card.out-of-stock .card-title {
+  color: #999;
+}
+
 .card-price {
   color: #7ac142;
   margin-top: auto;
@@ -80,7 +94,6 @@
   font-weight: 800;
 }
 
-/* add to cart button */
 .add-cart-btn {
   margin-top: 8px;
   background: #111;
@@ -120,6 +133,7 @@
 @media (max-width: 900px) {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
+    padding-top: 20px;
   }
 }
 @media (max-width: 520px) {

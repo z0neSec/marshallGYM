@@ -12,13 +12,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// routes
 app.use('/api/auth', authRouter);
 app.use('/api/upload', uploadRouter);
 app.use('/api/products', productsRouter);
-app.use('/api/orders', ordersRouter); // <--- added orders routes
+app.use('/api/orders', ordersRouter); 
 
-// connect db & seed admin
 const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(async () => {

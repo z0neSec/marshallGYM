@@ -6,6 +6,8 @@ import strength_bg from '../images/strength-hero-bg.png';
 import CategoryCarousel from '../components/CategoryCarousel';
 
 const Home = () => {
+    const currentMonth = new Date().toLocaleString('en-US', { month: 'long' }).toUpperCase();
+
     return (
         <main className="home-main">
             <div className="home-grid">
@@ -22,7 +24,7 @@ const Home = () => {
                 </div>
                 <div className="home-sale">
                     <div className="home-sale-content">
-                        <h2>SHOP OUR OCTOBER SALE!</h2>
+                        <h2>SHOP OUR {currentMonth} SALE!</h2>
                         <Link to="/shop-all" className="sale-btn">
                             SHOP SALE
                         </Link>

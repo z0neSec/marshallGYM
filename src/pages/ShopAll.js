@@ -41,7 +41,7 @@ const ShopAll = () => {
 
   const categories = useMemo(() => {
     const set = new Set(products.map(p => p.category).filter(Boolean));
-    return ['All', ...Array.from(set)];
+    return ['All', ...Array.from(set).sort()];
   }, [products]);
 
   const sortedFiltered = useMemo(() => {

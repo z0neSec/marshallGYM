@@ -57,6 +57,28 @@
   font-weight: 600;
 }
 
+.btn-mark-paid {
+  background: #7ac142;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.btn-mark-paid:hover:not(:disabled) {
+  background: #6ab030;
+  transform: translateY(-2px);
+}
+
+.btn-mark-paid:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .order-header-item .status {
   display: inline-block;
   padding: 6px 12px;

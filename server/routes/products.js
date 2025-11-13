@@ -6,10 +6,13 @@ const auth = require('../middleware/auth');
 // Create
 router.post('/', auth, async (req, res) => {
   try {
-    const { name, price, category, description, imageUrl, stock } = req.body;
-    const p = await Product.create({ name, price, category, description, imageUrl, stock });
+    const { name, price, category, description, imageUrl, images, stock } = req.body;
+    // ensure imageUrl fallback to first image for compatibility
+    const firstImage = imageUrl || (Array.isArray(images) && images.length ? images[0] : '');
+    const p = await Product.create({ name, price, category, description, imageUrl: firstImage, images: images || (firstImage ? [firstImage] : []), stock });
     res.status(201).json(p);
   } catch (err) {
+    console.error('Product create error', err);
     res.status(500).json({ message: 'Create failed' });
   }
 });

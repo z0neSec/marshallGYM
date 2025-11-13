@@ -33,6 +33,9 @@
   border-bottom: 1px solid #f1f1f1;
   color: #333;
 }
+.out-of-stock-row td {
+  background: rgba(240, 228, 228, 0.6);
+}
 .td-preview img {
   width: 84px;
   height: 56px;
@@ -66,4 +69,9 @@
     width: 56px;
     height: 40px;
   }
+}
+@media (max-width: 520px) {
+    .admin-page {
+        padding: 120px 12px 40px;
+    }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Breadcrumb from '../../components/Breadcrumb';
 import '../../styles/ProductList.css';
 import api from '../../services/api';
 import { toastSuccess, toastError } from '../../utils/toast';
@@ -35,7 +36,11 @@ const ProductList = () => {
       <div className="admin-container">
         <div className="list-header">
           <h1 className="admin-title">Products</h1>
-          <Link to="/admin/add" className="admin-btn">Add Product</Link>
+          <div className="nav-buttons">
+            <Link to="/admin" className="admin-btn outline">Dashboard</Link>
+            <Link to="/admin/orders" className="admin-btn outline">Orders</Link>
+            <Link to="/admin/add" className="admin-btn">Add Product</Link>
+          </div>
         </div>
 
         <div className="product-table-wrap">
@@ -48,8 +53,8 @@ const ProductList = () => {
               </thead>
               <tbody>
                 {products.map((p) => (
-                  <tr key={p._id}>
-                    <td className="td-preview"><img src={p.imageUrl} alt={p.name} /></td>
+                  <tr key={p._id} className={Number(p.stock) > 0 ? '' : 'out-of-stock-row'}>
+                    <td className="td-preview"><img src={(p.images && p.images[0]) || p.imageUrl || p.image} alt={p.name} /></td>
                     <td>{p.name}</td>
                     <td>{p.category}</td>
                     <td>₦{p.price}</td>

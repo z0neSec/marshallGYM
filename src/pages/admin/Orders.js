@@ -23,7 +23,14 @@ const AdminOrders = () => {
     <>
       <Breadcrumb title="Orders" parent="Admin" parentTo="/admin" />
       <div className="admin-orders container">
-        <h2>Orders</h2>
+        <div className="orders-header">
+          <h2>Orders</h2>
+          <div className="nav-buttons">
+            <Link to="/admin" className="admin-btn outline">Dashboard</Link>
+            <Link to="/admin/products" className="admin-btn outline">Products</Link>
+            <Link to="/admin/add" className="admin-btn">Add Product</Link>
+          </div>
+        </div>
         {loading ? <div>Loading…</div> : error ? <div className="error-msg">{error}</div> : (
           <table className="orders-table">
             <thead>

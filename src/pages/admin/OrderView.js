@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import Breadcrumb from '../../components/Breadcrumb';
+import { toastSuccess, toastError } from '../../utils/toast';
 import '../../styles/OrderView.css';
 
 const OrderView = () => {
   const { id } = useParams();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [marking, setMarking] = useState(false);
   
-  useEffect(() => {
+  const fetchOrder = () => {
     api.get(`/orders/${id}`)
       .then(r => setOrder(r.data))
       .catch(e => {
@@ -17,6 +19,25 @@ const OrderView = () => {
         setOrder(null);
       })
       .finally(() => setLoading(false));
+  };
+
+  const markAsPaid = async () => {
+    if (!order) return;
+    setMarking(true);
+    try {
+      const res = await api.post(`/orders/${order._id}/confirm-payment`);
+      setOrder(res.data.order);
+      toastSuccess('Order marked as paid');
+    } catch (err) {
+      console.error('Mark paid error:', err);
+      toastError('Failed to mark as paid');
+    } finally {
+      setMarking(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrder();
   }, [id]);
 
   if (loading) return (<div className="container">Loading…</div>);
@@ -40,6 +61,13 @@ const OrderView = () => {
               <label>Status</label>
               <div className={`status ${order.status}`}>{order.status}</div>
             </div>
+            {order.status === 'pending' && (
+              <div className="order-header-item">
+                <button className="btn-mark-paid" onClick={markAsPaid} disabled={marking}>
+                  {marking ? 'Marking…' : 'Mark as Paid'}
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="section">
