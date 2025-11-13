@@ -47,14 +47,7 @@ const Footer = () => {
                         <li><Link to="/shop-all">Shop All</Link></li>
                     </ul>
                 </div>
-                <div className="footer-col">
-                    <div className="footer-title">THE BORING STUFF</div>
-                    <ul>
-                        <li><Link to="/returns">Returns Policy</Link></li>
-                        <li><Link to="/shipping">Shipping</Link></li>
-                        <li><Link to="/warranty">Warranty</Link></li>
-                    </ul>
-                </div>
+               
                 <div className="footer-col">
                     <div className="footer-title">USEFUL LINKS</div>
                     <ul>
@@ -64,7 +57,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <span>
-                    Made With Love, Sweat &amp; Happiness by <span className="footer-bottom-bold">Marshall</span> {new Date().getFullYear()}.
+                    Made With Love, Sweat &amp; Happiness by <span className="footer-bottom-bold">z0ne</span> {new Date().getFullYear()}.
                 </span>
             </div>
         </footer>

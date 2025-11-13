@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Breadcrumb from '../components/Breadcrumb';
+import BankTransfer from '../components/BankTransfer';
 import api from '../services/api';
 import { toastSuccess, toastError } from '../utils/toast';
 import '../styles/Checkout.css';
 import { useHistory } from 'react-router-dom';
-
-const REACT_PAYSTACK_KEY = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
-
-function loadPaystackScript() {
-  return new Promise((resolve, reject) => {
-    if (window.PaystackPop) return resolve(true);
-    const s = document.createElement('script');
-    s.src = 'https://js.paystack.co/v1/inline.js';
-    s.onload = () => resolve(true);
-    s.onerror = () => reject(new Error('Paystack script load failed'));
-    document.body.appendChild(s);
-  });
-}
 
 const Checkout = () => {
   const history = useHistory();
@@ -30,7 +18,8 @@ const Checkout = () => {
   const [form, setForm] = useState({
     firstName: '', lastName: '', address: '', phone: '', email: '', notes: ''
   });
-  const [loading, setLoading] = useState(false);
+  const [order, setOrder] = useState(null);
+  const [showPayment, setShowPayment] = useState(false);
 
   useEffect(() => {
     const onUpdate = () => {
@@ -47,16 +36,14 @@ const Checkout = () => {
 
   const onChange = (e) => setForm(s => ({ ...s, [e.target.name]: e.target.value }));
 
-  const handlePay = async () => {
+  const handleCreateOrder = async () => {
     if (!form.firstName || !form.lastName || !form.address || !form.phone || !form.email) {
       toastError('Please fill required billing details');
       return;
     }
     if (!cart.length) { toastError('Cart is empty'); return; }
 
-    setLoading(true);
     try {
-      // 1) create order on server (status: pending)
       const payload = {
         customer: { ...form },
         items: cart.map(i => ({ productId: i.id, name: i.name, price: Number(i.price), quantity: Number(i.quantity) })),
@@ -64,58 +51,22 @@ const Checkout = () => {
         total
       };
       const createRes = await api.post('/orders', payload);
-      const order = createRes.data;
-
-      // 2) load paystack and initialize
-      await loadPaystackScript();
-      if (!window.PaystackPop) throw new Error('Paystack not available');
-
-      const handler = window.PaystackPop.setup({
-        key: REACT_PAYSTACK_KEY,
-        email: form.email,
-        amount: Math.round(total * 100), // Paystack expects amount in kobo (or cents)
-        ref: `${order._id}-${Date.now()}`,
-        // metadata can contain custom fields
-        metadata: {
-          custom_fields: [
-            { display_name: "Order ID", variable_name: "order_id", value: order._id },
-            { display_name: "Customer Phone", variable_name: "phone", value: form.phone }
-          ]
-        },
-
-        // use a plain function here so Paystack accepts the callback
-        callback: function(response) {
-          // verify payment on the server
-          api.post(`/orders/${order._id}/verify`, { reference: response.reference })
-            .then((verifyRes) => {
-              if (verifyRes.data && verifyRes.data.ok) {
-                // success: clear cart, notify header, navigate / show success
-                localStorage.removeItem('mg_cart');
-                window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count: 0 } }));
-                toastSuccess('Payment successful — thank you!');
-                history.push(`/order?id=${order._id}`);
-              } else {
-                toastError('Payment verification failed');
-              }
-            })
-            .catch((e) => {
-              console.error('verification error', e);
-              toastError('Payment verification failed');
-            });
-        },
-
-        onClose: function() {
-          toastError('Payment window closed.');
-        }
-      });
-
-      handler.openIframe();
+      const newOrder = createRes.data;
+      setOrder(newOrder);
+      setShowPayment(true);
+      toastSuccess('Order created — please proceed with bank transfer');
     } catch (err) {
-      console.error('Checkout error', err);
-      toastError(err.response?.data?.message || err.message || 'Checkout failed');
-    } finally {
-      setLoading(false);
+      console.error('Order creation error', err);
+      toastError(err.response?.data?.message || 'Could not create order');
     }
+  };
+
+  const handlePaymentSuccess = (paidOrder) => {
+    // clear cart & notify header
+    localStorage.removeItem('mg_cart');
+    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count: 0 } }));
+    // navigate to order complete page
+    history.push(`/order?id=${paidOrder._id}`);
   };
 
   return (
@@ -157,18 +108,26 @@ const Checkout = () => {
               <textarea name="notes" value={form.notes} onChange={onChange} placeholder="Notes about your order, e.g. special notes for delivery." rows={6} />
             </label>
 
-            <div className="payment-info">
-              <h3>PAYMENT INFORMATION</h3>
-              <div className="pay-desc">
-                Paystack (Credit / Debit Card)
-              </div>
-            </div>
+            {showPayment ? (
+              <>
+                <BankTransfer orderId={order._id} onSuccess={handlePaymentSuccess} />
+              </>
+            ) : (
+              <>
+                <div className="payment-info">
+                  <h3>PAYMENT METHOD</h3>
+                  <div className="pay-desc">
+                    Bank Transfer
+                  </div>
+                </div>
 
-            <div className="place-order">
-              <button className="place-order-btn" onClick={handlePay} disabled={loading}>
-                {loading ? 'Processing…' : 'PLACE ORDER / PAY NOW'}
-              </button>
-            </div>
+                <div className="place-order">
+                  <button className="place-order-btn" onClick={handleCreateOrder}>
+                    PROCEED TO BANK TRANSFER
+                  </button>
+                </div>
+              </>
+            )}
           </section>
 
           <aside className="order-review">
@@ -181,7 +140,7 @@ const Checkout = () => {
                     <div className="meta">
                       <div className="name">{item.name}</div>
                       <div className="qty-price">
-                        <div className="qty">{item.quantity}</div>
+                        <div className="qty">- {item.quantity} +</div>
                         <div className="price">₦{item.price}</div>
                       </div>
                     </div>

@@ -21,6 +21,9 @@ import './styles/theme.css';
 import './styles/toast.css'; 
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
+import OrderComplete from './pages/OrderComplete';
+import AdminOrders from './pages/admin/Orders';
+import OrderView from './pages/admin/OrderView';
 
 // set token on app load if exists
 const token = localStorage.getItem('admin_token');
@@ -42,6 +45,7 @@ const App = () => (
         <Route path="/cart" component={Cart} />
         <Route path="/product/:id" component={ProductDetail} />
         <Route path="/checkout" component={Checkout} />
+        <Route path="/order" component={OrderComplete} />          {/* new order complete page expects ?id= */}
 
         {/* admin routes */}
         <Route path="/admin/login" component={AdminLogin} />
@@ -49,6 +53,8 @@ const App = () => (
         <PrivateRoute exact path="/admin/add" component={AddProduct} />
         <PrivateRoute exact path="/admin/products" component={ProductList} />
         <PrivateRoute exact path="/admin/edit/:id" component={AddProduct} />
+        <PrivateRoute exact path="/admin/orders" component={AdminOrders} />    {/* admin orders list */}
+        <PrivateRoute exact path="/admin/order/:id" component={OrderView} />   {/* admin order view */}
       </Switch>
       <Footer />
     </div>

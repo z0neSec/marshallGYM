@@ -1,0 +1,149 @@
+.bank-transfer {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.bt-header {
+  margin-bottom: 20px;
+}
+.bt-header h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+.bt-header p {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+
+.bt-details-card {
+  background: #f9f9f9;
+  border: 2px solid rgba(122, 193, 66, 0.1);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.bt-detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+.bt-detail-row:last-child {
+  border-bottom: none;
+}
+
+.bt-detail-row .label {
+  font-weight: 700;
+  color: #333;
+  min-width: 140px;
+}
+
+.bt-detail-row .value {
+  color: #7ac142;
+  font-weight: 800;
+  flex: 1;
+  margin: 0 12px;
+  word-break: break-all;
+}
+
+.copy-btn {
+  background: #7ac142;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+.copy-btn:hover {
+  background: #5ea32d;
+}
+
+.bt-instructions {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+.bt-instructions h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+.bt-instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.bt-instructions li {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.bt-confirm-btn {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  margin-bottom: 12px;
+}
+.bt-confirm-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+.bt-confirm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bt-note {
+  color: #888;
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
+}
+
+.bt-loading {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .bank-transfer {
+    padding: 16px;
+  }
+  .bt-details-card {
+    padding: 12px;
+  }
+  .bt-detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .bt-detail-row .value {
+    margin: 6px 0;
+  }
+  .copy-btn {
+    align-self: flex-end;
+  }
+  .bt-confirm-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

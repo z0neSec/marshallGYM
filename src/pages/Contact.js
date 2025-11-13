@@ -52,9 +52,7 @@ const Contact = () => {
                         <div className="times-grid">
                             <div className="times-card">
                                 <ul>
-                                    <li><strong>MONDAY - THURSDAY:</strong> 8:30 - 16:00</li>
-                                    <li><strong>FRIDAY:</strong> 8:30 - 15:00</li>
-                                    <li><strong>SATURDAY:</strong> By appointment</li>
+                                    <li><strong>MONDAY - SATURDAY:</strong> 8:30 - 18:00</li>
                                     <li><strong>SUNDAY:</strong> Closed</li>
                                 </ul>
                             </div>
