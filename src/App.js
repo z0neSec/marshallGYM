@@ -25,7 +25,6 @@ import OrderComplete from './pages/OrderComplete';
 import AdminOrders from './pages/admin/Orders';
 import OrderView from './pages/admin/OrderView';
 
-// set token on app load if exists
 const token = localStorage.getItem('admin_token');
 if (token) setAuthToken(token);
 
@@ -45,16 +44,15 @@ const App = () => (
         <Route path="/cart" component={Cart} />
         <Route path="/product/:id" component={ProductDetail} />
         <Route path="/checkout" component={Checkout} />
-        <Route path="/order" component={OrderComplete} />          {/* new order complete page expects ?id= */}
+        <Route path="/order" component={OrderComplete} />         
 
-        {/* admin routes */}
         <Route path="/admin/login" component={AdminLogin} />
         <PrivateRoute exact path="/admin" component={AdminDashboard} />
         <PrivateRoute exact path="/admin/add" component={AddProduct} />
         <PrivateRoute exact path="/admin/products" component={ProductList} />
         <PrivateRoute exact path="/admin/edit/:id" component={AddProduct} />
-        <PrivateRoute exact path="/admin/orders" component={AdminOrders} />    {/* admin orders list */}
-        <PrivateRoute exact path="/admin/order/:id" component={OrderView} />   {/* admin order view */}
+        <PrivateRoute exact path="/admin/orders" component={AdminOrders} />   
+        <PrivateRoute exact path="/admin/order/:id" component={OrderView} />   
       </Switch>
       <Footer />
     </div>
