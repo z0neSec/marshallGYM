@@ -55,9 +55,28 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET;
+
 router.post('/:id/confirm-payment', async (req, res) => {
   try {
     const { id } = req.params;
+
+    const auth = req.header('Authorization');
+    if (auth) {
+      const token = auth.replace('Bearer ', '');
+      try {
+        const payload = jwt.verify(token, JWT_SECRET);
+        if (payload && payload.role === 'admin') {
+          const order = await Order.findByIdAndUpdate(id, { status: 'paid' }, { new: true }).lean();
+          if (!order) return res.status(404).json({ message: 'Order not found' });
+          return res.json({ ok: true, order, message: 'Order marked as paid by admin.' });
+        }
+      } catch (e) {
+        console.warn('Invalid token on confirm-payment:', e.message);
+      }
+    }
+
     const order = await Order.findById(id).lean();
     if (!order) return res.status(404).json({ message: 'Order not found' });
     res.json({ ok: true, order, message: 'Payment confirmation received. Admin will verify and mark as paid.' });

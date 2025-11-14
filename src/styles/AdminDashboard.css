@@ -13,6 +13,24 @@
   margin-bottom: 22px;
   color: #222;
 }
+/* Title row with optional icon */
+.admin-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-login-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 160ms ease, transform 120ms ease;
+}
+.admin-login-icon svg { display: block; }
+.admin-login-icon:hover { background: rgba(0,0,0,0.05); transform: translateY(-1px); }
 .admin-cards {
   display: flex;
   gap: 20px;
