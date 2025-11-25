@@ -33,7 +33,7 @@ const Home = () => {
                 <div className="home-dumbbells">
                     <div className="dumbbells-content">
                         <div className="dumbbells-title">DUMBBELLS</div>
-                        <div className="dumbbells-sub">BEST PRICES IN SA</div>
+                        <div className="dumbbells-sub">BEST PRICES IN NIGERIA</div>
                         <Link to="/free-weights" className="dumbbells-btn">
                             SHOP NOW
                         </Link>
